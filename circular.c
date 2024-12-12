@@ -25,6 +25,7 @@ void create()
         else
         {
             current->next = new;
+            new->next = head;
             current = new;
         }
     }
@@ -32,8 +33,12 @@ void create()
 
 void display()
 {
-    for (temp = head; temp != NULL; temp = temp->next)
+    temp = head;
+    do
+    {
         printf("%d\t", temp->data);
+        temp = temp->next;
+    } while (temp != head);
 }
 
 void insert()
@@ -43,17 +48,18 @@ void insert()
     scanf("%d", &c);
     new = (struct node *)malloc(sizeof(struct node));
     new->next = NULL;
-    printf("Enter the data");
+    printf("Enter the data:\n");
     scanf("%d", &new->data);
     if (c == 1)
     {
         new->next = head;
+        current->next = new;
         head = new;
     }
     else if (c == 2)
     {
         current->next = new;
-        new->next = NULL;
+        new->next = head;
         current = new;
     }
     else if (c == 3)
@@ -79,16 +85,17 @@ void delete()
     {
         temp = head;
         head = head->next;
+        current->next = head;
         free(temp);
     }
     if (c == 2)
     {
-        for (temp = head; temp->next != NULL; temp = temp->next)
+        for (temp = head; temp->next != head; temp = temp->next)
         {
-            if (temp->next->next == NULL)
+            if (temp->next->next == head)
             {
                 free(temp->next);
-                temp->next = NULL;
+                temp->next = head;
                 // temp=temp->next;
                 break;
             }
@@ -120,7 +127,7 @@ void search()
         scanf("%d", &a);
         temp = head;
         int f = 0;
-        while (temp->next != NULL)
+        while (temp->next != head)
         {
             if (temp->data == a)
             {
