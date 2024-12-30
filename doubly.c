@@ -87,7 +87,6 @@ void Delete()
         head = head->next;
         head->prev = NULL;
         free(temp);
-
     }
 
     if (c == 2)

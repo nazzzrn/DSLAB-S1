@@ -8,6 +8,7 @@ struct node
 struct node *head = NULL, *new, *current, *temp, *tobedeleted;
 void create()
 {
+
     int n;
     printf("Enter the number of nodes:\n");
     scanf("%d", &n);
