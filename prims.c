@@ -3,9 +3,10 @@
 
 void main()
 {
-    int n, A[n][n],vi[n], u, v, min = 999, cost = 0, e = 1;
+    int n;
     printf("Enter the number of vertices:\n");
     scanf("%d", &n);
+    int A[n][n],vi[n], u, v, min = 999, cost = 0, e = 1;
     printf("Enter the adjacency matrix:\n");
     for (int i = 0; i < n; i++)
     {
